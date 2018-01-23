@@ -1,0 +1,5 @@
+
+1.npm init -y
+2.npm install webpack webpack-dev-server babel-core babel-loader babel-preset-es2015 babel-preset-stage-0 css-loader style-loader less less-loader file-loader url-loader html-webpack-plugin --save-dev
+##安装vue-loader(解析.vue文件) vue-template-compiler(编译template模板)
+##npm install vue-loader vue-template-compiler --save-dev

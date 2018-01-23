@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<dv id="app">
+    {{msg}}
+    <div v-text="msg"></div><!--防止大括号一开始显示-->
+    <!--表单元素input checkbox textarea radio select -->
+    <!--vue的指令directive只是dom上的行间属性，vue给这类属性赋予一定意义，来实现特殊的功能,所有指令以v-开头value默认情况下会被vue忽略selected checked都没有意义-->
+    <!--v-model会将msg的值赋予输入框，同样输入框值改变会影响msg-->
+    <!--Object.definedProperty-->
+    <!--v-text等价于{{}}-->
+    <!--v-once只绑定一次-->
+    <!--v-html把html当html渲染必须是可信任的html-->
+    <div v-once>
+        {{msg}}
+    </div>
+    <di v-html="p">{{p}}</di>
+    <input type="text" v-model="msg">
+</dv>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+    let vm=new Vue({
+        el:"#app",
+        data:{
+            msg:"hello!",
+            p:'<h1>hello</h1>'
+        }
+    });
+</script>
+</body>
+</html>

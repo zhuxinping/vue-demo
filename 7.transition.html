@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="node_modules/animate.css/animate.css">
+    <style>
+        #app>div{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--v-if=""  v-show="" if操作的是dom  show操作的是样式-->
+    <!--如果频繁的切换dom用v-show-->
+    <!--当数据一开始就确定下来使用v-if更好些，如果if不同内部指令就不会再执行了-->
+  <!--只有dom从显示到隐藏 或者隐藏到显示 才使用vue动画-->
+   <!-- <div v-if="false">
+        <div v-for="a in arr">
+
+        </div>
+    </div>-->
+    <button @click="flag=!flag">切换</button>
+    <input type="text" v-model="query">
+    <!--vue自定义标签 (组件)-->
+<!--v-for默认会复用原有的dom元素如果加了key而且key不同他就认为是两个人-->
+    <transition-group enter-active-class="animated bounceInUp" leave-active-class="animated bounceOutDown">
+       <div v-for="(a,index) in newArr" :key="Math.random()">
+           {{a}}
+       </div>
+    </transition-group>
+</div>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    let vm=new Vue({
+        el:'#app',
+        computed:{
+            newArr(){
+                return this.arr.filter(item=>item==this.query);
+            }
+        },
+        data:{
+            query:'',
+            flag:true,
+            arr:[1,2,3,4,5,1]
+        }
+    });
+</script>
+</body>
+</html>

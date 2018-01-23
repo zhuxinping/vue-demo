@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="app" v-cloak>
+    <select name="" id="select" v-model="b" multiple>
+        <option value="" disabled>请选择</option>
+        <option value="1">你好</option>
+        <option value="2">不好</option>
+        <option value="3">我好</option>
+    </select>
+    <!--如果value属性不写默认的取的是option中的值，请选择这一项要加disabled-->
+    {{b}}
+    <!--如果select是多选框则数据类型要是数组类型-->
+    <select name="" v-model="a">
+        <option value="" disabled>请选择</option>
+        <option>你好</option>
+        <option>不好</option>
+        <option>我好</option>
+    </select>
+    {{a}}
+</div>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+/*let oSelect=document.getElementById('select');
+oSelect.onchange=function () {
+    alert(this.value);
+}*/
+let vm=new Vue({//根实例
+    el:'#app',
+    data:{//都是数据
+        a:'',
+        b:[]
+    }
+});
+</script>
+</body>
+</html>

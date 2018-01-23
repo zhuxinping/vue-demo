@@ -1,0 +1,82 @@
+vue复习
+v-model(如果checkbox,select多选是数组,提供一个value属性)
+(radio checkbox分组靠的是v-model)checked selected不存在
+修饰符 .number.lazy
+按键修饰符.enter .ctrl .keyCode
+事件stopPropagation cancelBuble=rue;
+preventDefault returnValue=false
+@事件.stop解决事件冒泡
+jq  once
+事件捕获 @事件.capture
+capture.stop捕获事件被阻止
+@事件.once
+@事件.self 判断事件源
+e.srcElement &&e.target 判断事件源绑定事件
+filters
+{{'123'|my(1,2,3)}}
+filters:{
+    my(data,param1,param2,param3){
+
+    }
+}
+computed计算属性 不是方法
+-方法不会有缓存,computed会根据依赖(归vue管理的数据,可以响应式变化的)的属性进行缓存
+两部分组成
+get set(不能只写set)
+一般情况下通过js赋值影响他人或者表单元素设置值的时候会调用set方法
+##v-if/v-show
+v-if操作dom v-if可以和v-else-if,v-else合用
+
+v-show操作的是样式
+v-bind简写 :
+-动态绑定"属性"
+##下载一个全局生成vue项目的脚手架
+npm install vue-cli -g
+
+vue init webpack <项目名字>
+npm install
+npm run dev
+####模块
+-node模块的规范commonjs
+cmd seajs and require
+esmodule
+如果是第三方模块不要加
+如果是文件模块要加
+import拥有声明功能 可以变量提升
+npm install webpack -g
+安装webpack 或less最好不要安装全局 可能导致webpack的版本差异
+
+
+npm init -y
+npm install webpack --save-dev
+在package.json中配置一个脚本,这个脚本用的命令是webpack，会去当前的node_modules中bin找到webpack.js,让其执行，webpack.js需要当前目录下有个webpack.config.js文件，我们通过npm run build执行的是当前文件目录，所以会去当前目录查找
+### babel转义ES6->ES5安装babel
+'''
+npm install babel-core --save-dev
+npm install babel-loader --save-dev//解析语法
+## npm install babel-preset-es2015 --save-dev让翻译官拥有解析es6的功能
+##babel-preset-stage-0
+npm install babel-preset-stage-0 --save-dev  解析es7
+'''
+解析样式
+```
+-css-loader将css解析成模块将解析的内容插入到style标签内(style-loader)
+npm install css-loader style-loader --save-dev
+less,sass,stylus(预处理语言)
+less-loader
+npm install less-loader less --save-dev
+sass-loader
+stylus-loader
+file-loader url-loader（依赖file-loader）
+npm install file-loader url-loader --save-dev
+img中src=''路径会被webpack当成字符串不会查找
+在js中引入图片需要import或者用图片的http路径
+```
+```
+###需要解析html插件
+插件的作用是以我们自己的html为模板将打包后的结果，自动引入到html中产出到dist目录下
+npm install html-webpack-plugin --save-dev
+##webpack-dev-server
+-这里面内置了一个服务，可以帮我们启动一个端口号,当代码更新时可以自动打包(内存中打包)，时刻监控代码，代码有变化就重新执行
+npm install webpack-dev-server --save-dev
+```

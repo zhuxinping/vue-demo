@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--v-on ===@-->
+    <!--如果不传递参数则不要写括号会自动传入事件源，如果写括号要手动传入$event属性-->
+    <div @click="fn($event,1)">点我啊</div>
+    <div @click="fn1(1)">点我啊</div>
+</div>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+let vm=new Vue({//根实例
+    el:'#app',
+    methods:{//methods和data中的数据会全部放到vm上，而且名字不能冲突，冲突会报错
+            //methods中的this指向的都是vm
+        fn(event,a){
+            console.log(event,a)
+        },
+        fn1(a){
+            console.log(a)
+        }
+    },
+    data:{//都是数据
+        a:1
+    }
+});
+</script>
+</body>
+</html>

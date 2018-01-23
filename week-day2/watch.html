@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="a">
+    {{msg}}
+    <!--根据输入框中的内容算出新的错误信息-->
+</div>
+<script src="node_modules/vue/dist/vue.js"></script>
+<script>
+   let vm=new Vue({
+        el:'#app',
+       data:{
+           a:'',
+           msg:''
+       },
+       watch:{
+            a(newVal,oldVal){//watch属性名和观察的人的名字一致
+                //只有值变化的时候才会触发 支持异步其他情况的计算用computed更多
+                //console.log(newVal,oldVal);
+               setTimeout(()=>{
+                   if(newVal.length<3){
+                       return this.msg='太少';
+                   }
+                   if(newVal.length>6){
+                       return this.msg='太多';
+                   }
+                   this.msg='';
+               },2000)
+            }
+       }
+    });
+</script>
+<!--错误-->
+<!--computed:{
+a:{
+get(){
+return this.msg;
+},
+set(val){//如果写了set方法，并且val给了别人，那当前的a就不会被赋值
+this.msg=val;
+}
+}
+},-->
+</body>
+</html>

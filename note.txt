@@ -1,0 +1,50 @@
+pop push unshift shift splice reverse sort
+indexOf  lastIndexof concat slice
+
+
+forEach filter(过滤) map(映射) some every reduce (ES6:find ,includes)
+
+//框架和库
+//框架vue拥有完整的解决方案 我们写好人家调用
+vue全家桶vue.js+vue-router+vuex+axios
+通过组合 完成一个完整的框架
+客户端路由(vue-router)
+大规模状态管理(vuex)
+构建工具(vue-cli);
+Vue两个核心点
+响应的数据变化
+当数据发生变化->视图自动更新
+组合的视图组件
+ui页面映射为组件树
+划分组件可维护、可复用、可测试
+MVC
+-model数据
+-view视图
+-controller控制器
+MVVM(angular,vue)双向的
+##Object.defineProperty(es5)的没有替代方案
+-不支持IE8以下的浏览器
+
+安装vue
+```
+-cdn方式
+-npm安装 node package manager
+npm init 初始化会产生一个package.json文件用来描述项目的依赖
+npm install vue axios bootstrap
+```
+指令:dom元素的行间属性，vue提供了内置的指令，必须v开头，后面的值均为变量
+-v-model忽略 value checked selected
+将数据绑定到视图上 视图修改后会影响数据的变化
+v-text取代{{}} v-cloak解决闪烁问题，后期都可以不采用使用v-cloak要加样式
+v-once绑定一次，数据在变化不会导致视图刷新，写在不想刷新的标签上
+v-html将html字符串转化html
+v-for循环(数组 对象 字符串 数字)
+```
+<div v-for="value in/of 数组"></div>
+<div v-for="(value,index) in/of 数组"></div>
+事件 v-on(@)
+<div @事件名="fn"></div>
+绑定给dom元素，函数定义需要在methods中，不能喝data里的内容重名，this指向是实例
+不能使用箭头函数，事件源对象如果不写括号，可以自动传入，否则只能手动传入$event
+
+```
